@@ -118,10 +118,12 @@ javascript:(function(){document.querySelectorAll('[disabled],[readonly]').forEac
 
 ---
 
-> *Built by Anmol Sachan 
-• [Live demo](https://anmolksachan.github.io/demo_hidden.html) 
-
 **Usage Notes:**
 - Each bookmarklet is a self-contained, single line beginning with `javascript:`  
 - They do **not** require page reloads and leave non-hidden layout intact (especially the second, “Reveal Hidden Only” version)  
-- You can tweak the alert messages, outline colors, or CSS selectors as needed  
+- You can tweak the alert messages, outline colors, or CSS selectors as needed
+
+---
+
+**Want to support my work?**
+- Give me a Star in the repository or follow me [@FR13ND0x7F](https://twitter.com/fr13nd0x7f) , thats enough for me :P
