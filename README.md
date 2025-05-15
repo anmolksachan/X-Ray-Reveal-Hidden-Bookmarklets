@@ -1,6 +1,6 @@
 ## X-Ray & Reveal Hidden Bookmarklets
 
-A pair of lightweight JavaScript bookmarklets to instantly reveal, enable, and interact with elements that authors have hidden, disabled, or otherwise blocked on a web page—without breaking the site’s layout. Perfect for bug bounty hunters, penetration testers, QA engineers, or curious developers.
+A lightweight JavaScript bookmarklets to instantly reveal, enable, and interact with elements that authors have hidden, disabled, or otherwise blocked on a web page—without breaking the site’s layout. Perfect for bug bounty hunters, penetration testers, QA engineers, or curious developers.
 
 ---
 
@@ -42,6 +42,27 @@ javascript:(function(){var css="*{display:block!important;visibility:visible!imp
 javascript:(function(){['hidden','disabled','readonly'].forEach(a=>document.querySelectorAll('['+a+']').forEach(e=>e.removeAttribute(a)));document.querySelectorAll('[style]').forEach(e=>{let s=e.style;if(s.display==='none')s.removeProperty('display');if(s.visibility==='hidden')s.removeProperty('visibility');if(s.opacity==='0')s.removeProperty('opacity');if(s.pointerEvents==='none'){s.removeProperty('pointer-events');s.removeProperty('opacity');}});document.querySelectorAll('details').forEach(d=>d.open=true);alert('✅ Hidden/disabled elements revealed!');})();
 ```
 
+
+**3. 🔖 Enable all disabled or readonly fields:**
+
+```javascript
+javascript:(function(){document.querySelectorAll('[disabled],[readonly]').forEach(el=>{el.removeAttribute('disabled');el.removeAttribute('readonly');});})();
+```
+
+**4. 🔖 Unhide elements styled with display: none:***
+```javascript
+javascript:(function(){document.querySelectorAll('[style*="display: none"]').forEach(el=>{el.style.display='block';});})();
+```
+
+**5. 🔖 Re-enable blocked interactions (pointer-events: none):***
+```javascript
+javascript:(function(){document.querySelectorAll('[style*="pointer-events: none"]').forEach(el=>{el.style.pointerEvents='auto';el.style.opacity='1';});})();
+```
+
+**6. 🚀 All-in-one (For 3,4 & 5):**
+```javascript
+javascript:(function(){document.querySelectorAll('[disabled],[readonly]').forEach(el=>{el.removeAttribute('disabled');el.removeAttribute('readonly');});document.querySelectorAll('[style*="display: none"]').forEach(el=>{el.style.display='block';});document.querySelectorAll('[style*="pointer-events: none"]').forEach(el=>{el.style.pointerEvents='auto';el.style.opacity='1';});alert('Disabled, readonly, and hidden elements are now active!');})();
+```
 ---
 
 ## 🛠️ How to Install
@@ -92,7 +113,8 @@ javascript:(function(){['hidden','disabled','readonly'].forEach(a=>document.quer
 
 ### 📣 Feedback & Contribution
 
-Feel free to open issues or pull requests! Whether it’s refinements, new features, or deeper automation—let’s make web testing faster and more transparent.
+- Feel free to open issues or pull requests! Whether it’s refinements, new features, or deeper automation—let’s make web testing faster and more transparent.
+- Inspired from linkedin post by [André Baptista](https://www.linkedin.com/posts/0xacb_hidden-or-disabled-fields-are-commonly-overlooked-ugcPost-7328708362781511680-houe?utm_source=share&utm_medium=member_desktop&rcm=ACoAABws_M0BR-1VMqnLP2NNWRoOGZSPtyj_R6Y)
 
 ---
 
